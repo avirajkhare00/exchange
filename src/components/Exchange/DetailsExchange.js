@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 import {loadCryptoPair} from '../../AC/exchangeInfo'
 import FormExchange from './FormExchange'
+import ImagesDirection from './ImagesDirection'
 import _ from 'lodash'
 
 class DetailsExchange extends Component {
@@ -90,23 +91,7 @@ class DetailsExchange extends Component {
 
 		return (
 			<div>
-                <h4 className="mt0">Detail from {cryptoFrom.Symbol} to {cryptoTo.Symbol} exchange: </h4>
-                <table className="crypto-details-images">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <img src={cryptoFrom.image} />
-                            </td>
-                            <td>
-                                <i className="fa fa-chevron-right"></i>
-                            </td>
-                            <td>
-                                <img src={cryptoTo.image} />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                
+                <ImagesDirection cryptoTo={cryptoTo} cryptoFrom={cryptoFrom} />
                 <FormExchange cryptoTo={cryptoTo} cryptoFrom={cryptoFrom} exchangeInfo={this.props.exchangeInfo} />
                 <br />
                 <p>Attention! In regard with the instability of Bitcoin's exchange rate, the amount you receive will be recalculated at the new exchange rate, if more than 10 minutes have passed from the inception of your order to the receipt of funds
